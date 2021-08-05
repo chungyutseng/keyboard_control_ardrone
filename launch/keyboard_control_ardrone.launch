@@ -1,8 +1,7 @@
 <launch>
 	</include>
-	<node pkg="test_0531" type="sender.py" name="sender" output="screen"/>
-	<node pkg="test_0531" type="controller.py" name="fly" output="screen"/>
-	<node pkg="test_0531" type="max_depth.py" name="max_depth" output="screen"/>
-    <node name="record_topics_for_verification1" pkg="rosbag" type="record"
-        args="record -o ground_truth /ground_truth/state /desired_x /desired_y /desired_z /desired_yaw"/>
+	<node pkg="keyboard_control_ardrone" type="keyboard_input" name="keyboard_input" output="screen"/>
+	<node pkg="keyboard_control_ardrone" type="fly_cmd.py" name="cmd" output="screen"/>
+    <node name="record_topics_for_verification" pkg="rosbag" type="record"
+        args="record -a"/>
 </launch>

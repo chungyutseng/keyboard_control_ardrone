@@ -1,23 +1,8 @@
 <launch>
-	<!--<arg name="align_depth" default="true"/>-->
-	<!-- <include file="$(find tm_driver)/tm5_900_bringup.launch"/> -->
-		<!-- <arg name="robot_ip" value="192.168.0.134"/> -->
-	<!--</include>-->
-	<include file="$(find test_0531)/launch/divide_space.launch">
-		<!-- <arg name="align_depth" value="true"/> -->
 	</include>
 	<node pkg="test_0531" type="sender.py" name="sender" output="screen"/>
 	<node pkg="test_0531" type="controller.py" name="fly" output="screen"/>
 	<node pkg="test_0531" type="max_depth.py" name="max_depth" output="screen"/>
-	<!-- <node pkg="drone1" type="sub_depth_test.py" name="depth" output="screen"/> -->
     <node name="record_topics_for_verification1" pkg="rosbag" type="record"
         args="record -o ground_truth /ground_truth/state /desired_x /desired_y /desired_z /desired_yaw"/>
-	<!-- <node name="record_topics_for_verification2" pkg="rosbag" type="record" -->
-		<!-- args="record -o cube /cube_array"/> -->
-	<!-- <node name="record_topics_for_verification3" pkg="rosbag" type="record" -->
-		<!-- args="record -o depth /min1 /min2 /min3 /min4 /min5 /min6 /min7 /min8 /min9"/> -->
-	<!-- <node name="record_topics_for_verification3" pkg="rosbag" type="record" -->
-		<!-- args="record -o depth /min1_1 /min2_2 /min3_3 /min4_4 /min5_5 /min6_6 /min7_7 /min8_8 /min9_9 /min_visit_final"/> -->
-	<node name="record_topics_for_verification3" pkg="rosbag" type="record"
-		args="record -o depth /min1_1 /min2_2 /min3_3 /min4_4 /min5_5 /min6_6 /min7_7 /min8_8 /min9_9 /depth_of_green_rectangle"/>
 </launch>

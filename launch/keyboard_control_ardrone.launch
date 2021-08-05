@@ -1,7 +1,6 @@
 <launch>
-	</include>
 	<node pkg="keyboard_control_ardrone" type="keyboard_input" name="keyboard_input" output="screen"/>
 	<node pkg="keyboard_control_ardrone" type="fly_cmd.py" name="cmd" output="screen"/>
     <node name="record_topics_for_verification" pkg="rosbag" type="record"
-        args="record -a"/>
+        args="record -o test /cmd_vel"/>
 </launch>
